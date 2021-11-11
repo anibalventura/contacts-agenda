@@ -88,6 +88,7 @@ namespace ContactAgenda
             this.BtnEditContact.TabIndex = 1;
             this.BtnEditContact.Text = "Edit";
             this.BtnEditContact.UseVisualStyleBackColor = true;
+            this.BtnEditContact.Click += new System.EventHandler(this.BtnEditContact_Click);
             // 
             // BtnDeleteContact
             // 
@@ -99,6 +100,7 @@ namespace ContactAgenda
             this.BtnDeleteContact.TabIndex = 2;
             this.BtnDeleteContact.Text = "Delete";
             this.BtnDeleteContact.UseVisualStyleBackColor = true;
+            this.BtnDeleteContact.Click += new System.EventHandler(this.BtnDeleteContact_Click);
             // 
             // BtnAddContact
             // 
@@ -111,6 +113,7 @@ namespace ContactAgenda
             this.BtnAddContact.TabIndex = 3;
             this.BtnAddContact.Text = "Add new contact";
             this.BtnAddContact.UseVisualStyleBackColor = true;
+            this.BtnAddContact.Click += new System.EventHandler(this.BtnAddContact_Click);
             // 
             // contextMenuStrip1
             // 
@@ -140,6 +143,7 @@ namespace ContactAgenda
             this.MsItemLogout.Name = "MsItemLogout";
             this.MsItemLogout.Size = new System.Drawing.Size(180, 22);
             this.MsItemLogout.Text = "Logout";
+            this.MsItemLogout.Click += new System.EventHandler(this.MsItemLogout_Click);
             // 
             // ContactsForm
             // 
@@ -151,6 +155,7 @@ namespace ContactAgenda
             this.Name = "ContactsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacts";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ContactsForm_FormClosed);
             this.TlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvContacts)).EndInit();
             this.menuStrip1.ResumeLayout(false);

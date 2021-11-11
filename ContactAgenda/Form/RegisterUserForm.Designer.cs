@@ -192,6 +192,7 @@ namespace ContactAgenda
             this.BtnRegister.TabIndex = 10;
             this.BtnRegister.Text = "Register";
             this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // BtnCancel
             // 
@@ -203,6 +204,7 @@ namespace ContactAgenda
             this.BtnCancel.TabIndex = 11;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // RegisterUserForm
             // 
@@ -213,6 +215,7 @@ namespace ContactAgenda
             this.Name = "RegisterUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterUserForm_FormClosed);
             this.TlpMain.ResumeLayout(false);
             this.TlpMain.PerformLayout();
             this.ResumeLayout(false);

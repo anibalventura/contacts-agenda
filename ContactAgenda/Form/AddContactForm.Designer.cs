@@ -35,8 +35,8 @@ namespace ContactAgenda
             this.LblAddress = new System.Windows.Forms.Label();
             this.LblPhoneNumber = new System.Windows.Forms.Label();
             this.LblWorkNumber = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnAddContact = new System.Windows.Forms.Button();
+            this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtBxName = new System.Windows.Forms.TextBox();
             this.TxtBxLastName = new System.Windows.Forms.TextBox();
             this.TxtBxAddress = new System.Windows.Forms.TextBox();
@@ -57,8 +57,8 @@ namespace ContactAgenda
             this.TlpMain.Controls.Add(this.LblAddress, 1, 3);
             this.TlpMain.Controls.Add(this.LblPhoneNumber, 1, 4);
             this.TlpMain.Controls.Add(this.LblWorkNumber, 1, 5);
-            this.TlpMain.Controls.Add(this.button1, 1, 6);
-            this.TlpMain.Controls.Add(this.button2, 2, 6);
+            this.TlpMain.Controls.Add(this.BtnAddContact, 1, 6);
+            this.TlpMain.Controls.Add(this.BtnCancel, 2, 6);
             this.TlpMain.Controls.Add(this.TxtBxName, 2, 1);
             this.TlpMain.Controls.Add(this.TxtBxLastName, 2, 2);
             this.TlpMain.Controls.Add(this.TxtBxAddress, 2, 3);
@@ -134,27 +134,29 @@ namespace ContactAgenda
             this.LblWorkNumber.TabIndex = 4;
             this.LblWorkNumber.Text = "Work number";
             // 
-            // button1
+            // BtnAddContact
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(94, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnAddContact.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAddContact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnAddContact.Location = new System.Drawing.Point(94, 339);
+            this.BtnAddContact.Name = "BtnAddContact";
+            this.BtnAddContact.Size = new System.Drawing.Size(207, 33);
+            this.BtnAddContact.TabIndex = 5;
+            this.BtnAddContact.Text = "Add";
+            this.BtnAddContact.UseVisualStyleBackColor = true;
+            this.BtnAddContact.Click += new System.EventHandler(this.BtnAddContact_Click);
             // 
-            // button2
+            // BtnCancel
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(307, 339);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 33);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnCancel.Location = new System.Drawing.Point(307, 339);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(207, 33);
+            this.BtnCancel.TabIndex = 6;
+            this.BtnCancel.Text = "Cancel";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TxtBxName
             // 
@@ -212,6 +214,7 @@ namespace ContactAgenda
             this.Name = "AddContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Contact";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddContactForm_FormClosed);
             this.TlpMain.ResumeLayout(false);
             this.TlpMain.PerformLayout();
             this.ResumeLayout(false);
@@ -226,8 +229,8 @@ namespace ContactAgenda
         private System.Windows.Forms.Label LblAddress;
         private System.Windows.Forms.Label LblPhoneNumber;
         private System.Windows.Forms.Label LblWorkNumber;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnAddContact;
+        private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.TextBox TxtBxName;
         private System.Windows.Forms.TextBox TxtBxLastName;
         private System.Windows.Forms.TextBox TxtBxAddress;

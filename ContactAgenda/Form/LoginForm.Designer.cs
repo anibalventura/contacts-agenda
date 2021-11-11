@@ -112,6 +112,7 @@ namespace ContactAgenda
             this.BtnRegister.TabIndex = 4;
             this.BtnRegister.Text = "Register";
             this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // BtnLogin
             // 
@@ -123,6 +124,7 @@ namespace ContactAgenda
             this.BtnLogin.TabIndex = 5;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // LoginForm
             // 
