@@ -131,6 +131,7 @@ namespace ContactAgenda
             this.ClientSize = new System.Drawing.Size(539, 367);
             this.Controls.Add(this.TlpMain);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TlpMain.ResumeLayout(false);
             this.TlpMain.PerformLayout();

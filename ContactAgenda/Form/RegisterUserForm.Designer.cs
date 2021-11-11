@@ -211,6 +211,7 @@ namespace ContactAgenda
             this.ClientSize = new System.Drawing.Size(608, 450);
             this.Controls.Add(this.TlpMain);
             this.Name = "RegisterUserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
             this.TlpMain.ResumeLayout(false);
             this.TlpMain.PerformLayout();
