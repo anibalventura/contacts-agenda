@@ -18,14 +18,14 @@ namespace BusinessLayer.Service
             return userRepository.Add(user);
         }
 
-        public User IsRegistered(string username)
+        public bool CheckUsername(string username)
         {
-            return userRepository.IsRegistered(username);
+            return userRepository.CheckUsername(username);
         }
 
-        public User Login(string username, string password)
+        public User GetLogin(string username, string password)
         {
-            return userRepository.Login(username, password);
+            return userRepository.GetLogin(username, password);
         }
     }
 }

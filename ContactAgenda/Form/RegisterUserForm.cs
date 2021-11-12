@@ -51,19 +51,19 @@ namespace ContactAgenda
             string password = TxtBxPassword.Text;
             string confirmPassword = TxtBxConfirmPassword.Text;
 
-            string isRegistered = _userService.IsRegistered(username).Username;
+            bool userCreated = _userService.CheckUsername(username);
 
-            if (username == isRegistered)
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))
+            {
+                MessageBox.Show("Please complete all fields in the form.", "Warning!");
+            }
+            else if (userCreated)
             {
                 MessageBox.Show("Username is registered, please use another username", "Warning!");
             }
             else if (password != confirmPassword)
             {
                 MessageBox.Show("Passwords are not the same.", "Warning!");
-            }
-            else if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))
-            {
-                MessageBox.Show("Please complete all fields in the form.", "Warning!");
             }
             else
             {
@@ -88,7 +88,7 @@ namespace ContactAgenda
                 }
                 else
                 {
-                    MessageBox.Show("There was a problem creating the user, try again later", "Error!");
+                    MessageBox.Show("There was a problem creating the user, try again later.", "Error!");
                 }
             }
         }

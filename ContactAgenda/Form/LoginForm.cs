@@ -52,7 +52,7 @@ namespace ContactAgenda
             string username = TxtBxUsername.Text;
             string password = TxtBxPassword.Text;
 
-            User user = _userService.Login(username, password);
+            User user = _userService.GetLogin(username, password);
 
             if(user.Username == username && user.Password == password)
             {
