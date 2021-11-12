@@ -11,8 +11,6 @@ namespace ContactAgenda
     {
         private ContactService _contactService;
 
-        private int? selectedContact = ContactsForm.Instance.selectedContact;
-
         public AddContactForm()
         {
             InitializeComponent();
@@ -31,11 +29,6 @@ namespace ContactAgenda
             LoadContactToEdit();
         }
 
-        private void AddContactForm_VisibleChanged(object sender, EventArgs e)
-        {
-            LoadContactToEdit();
-        }
-
         private void AddContactForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ContactsForm.Instance.Show();
@@ -43,7 +36,7 @@ namespace ContactAgenda
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (selectedContact != null)
+            if (LoginService.Instance.IdSelectedContact != null)
             {
                 EditContact();
             }
@@ -107,9 +100,9 @@ namespace ContactAgenda
 
         private void LoadContactToEdit()
         {
-            if (selectedContact != null)
+            if(LoginService.Instance.IdSelectedContact != null)
             {
-                Contact contact = _contactService.GetById((int)selectedContact);
+                Contact contact = _contactService.GetById((int)LoginService.Instance.IdSelectedContact);
 
                 TxtBxName.Text = contact.Name;
                 TxtBxLastName.Text = contact.LastName;
@@ -136,13 +129,13 @@ namespace ContactAgenda
             {
                 Contact updatedContact = new Contact()
                 {
-                    Id = (int)selectedContact,
+                    Id = (int)LoginService.Instance.IdSelectedContact,
                     Name = name,
                     LastName = lastName,
                     Address = address,
                     PhoneNumber = phoneNumber,
                     WorkNumber = workNumber,
-                    IdUser = (int)LoginService.Instance.IdLogedUser
+                    IdUser = idUser
                 };
 
                 bool result = _contactService.Edit(updatedContact);
@@ -165,7 +158,7 @@ namespace ContactAgenda
 
         private void CloseForm()
         {
-            ContactsForm.Instance.selectedContact = null;
+            LoginService.Instance.IdSelectedContact = null;
             this.Close();
         }
 

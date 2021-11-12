@@ -216,7 +216,6 @@ namespace ContactAgenda
             this.Text = "Add New Contact";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddContactForm_FormClosed);
             this.Load += new System.EventHandler(this.AddContactForm_Load);
-            this.VisibleChanged += new System.EventHandler(this.AddContactForm_VisibleChanged);
             this.TlpMain.ResumeLayout(false);
             this.TlpMain.PerformLayout();
             this.ResumeLayout(false);

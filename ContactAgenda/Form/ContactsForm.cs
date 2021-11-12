@@ -12,8 +12,6 @@ namespace ContactAgenda
 
         private ContactService _contactService;
 
-        public int? selectedContact = null;
-
         public ContactsForm()
         {
             InitializeComponent();
@@ -56,7 +54,7 @@ namespace ContactAgenda
         {
             if (e.RowIndex >= 0)
             {
-                selectedContact = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
+                LoginService.Instance.IdSelectedContact = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
         }
 
@@ -95,7 +93,7 @@ namespace ContactAgenda
 
         private void EditContact()
         {
-            if (selectedContact != null)
+            if (LoginService.Instance.IdSelectedContact != null)
             {
                 AddContactForm newAddContactForm = new AddContactForm();
                 newAddContactForm.Show();
@@ -109,14 +107,14 @@ namespace ContactAgenda
 
         private void DeleteContact()
         {
-            if (selectedContact != null)
+            if (LoginService.Instance.IdSelectedContact != null)
             {
                 DialogResult response = MessageBox.Show("Are you sure you want to delete this contact?",
                     "Warning!", MessageBoxButtons.OKCancel);
 
                 if (response == DialogResult.OK)
                 {
-                    bool result = _contactService.Delete((int)selectedContact);
+                    bool result = _contactService.Delete((int)LoginService.Instance.IdSelectedContact);
 
                     if (result)
                     {

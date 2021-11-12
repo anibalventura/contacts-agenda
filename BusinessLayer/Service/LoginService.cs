@@ -9,5 +9,7 @@ namespace BusinessLayer.Service
         public static LoginService Instance { get; } = new LoginService();
 
         public int? IdLogedUser { get; set; } = null;
+
+        public int? IdSelectedContact { get; set; } = null;
     }
 }
