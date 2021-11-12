@@ -38,6 +38,7 @@ namespace Database.Repository
             command.Parameters.AddWithValue("@phonenumber", user.PhoneNumber);
             command.Parameters.AddWithValue("@worknumber", user.WorkNumber);
             command.Parameters.AddWithValue("@iduser", user.IdUser);
+            command.Parameters.AddWithValue("@id", user.Id);
 
             return ExecuteDml(command);
         }
@@ -73,7 +74,7 @@ namespace Database.Repository
                     data.Address = reader.IsDBNull(3) ? "" : reader.GetString(3);
                     data.PhoneNumber = reader.IsDBNull(4) ? "" : reader.GetString(4);
                     data.WorkNumber = reader.IsDBNull(5) ? "" : reader.GetString(5);
-                    data.IdUser = reader.IsDBNull(6) ? 0 : reader.GetInt32(0);
+                    data.IdUser = reader.IsDBNull(6) ? 0 : reader.GetInt32(6);
                 }
 
                 reader.Close();

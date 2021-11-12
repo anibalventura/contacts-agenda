@@ -56,7 +56,7 @@ namespace ContactAgenda
         {
             if (e.RowIndex >= 0)
             {
-                selectedContact = int.Parse(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
+                selectedContact = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
         }
 
@@ -95,9 +95,16 @@ namespace ContactAgenda
 
         private void EditContact()
         {
-            AddContactForm newAddContactForm = new AddContactForm();
-            newAddContactForm.Show();
-            this.Hide();
+            if (selectedContact != null)
+            {
+                AddContactForm newAddContactForm = new AddContactForm();
+                newAddContactForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please select a contact.", "Warning!");
+            }
         }
 
         private void DeleteContact()
