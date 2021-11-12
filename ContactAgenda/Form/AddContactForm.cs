@@ -52,7 +52,7 @@ namespace ContactAgenda
             string workNumber = TxtBxWorkNumber.Text;
             int idUser = (int)LoginService.Instance.IdLogedUser;
 
-            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(phoneNumber) || String.IsNullOrEmpty(workNumber))
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(address) || !TxtBxPhoneNumber.MaskCompleted || !TxtBxWorkNumber.MaskCompleted)
             {
                 MessageBox.Show("Please complete all fields in the form.", "Warning!");
             }

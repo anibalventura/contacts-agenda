@@ -92,7 +92,8 @@ namespace ContactAgenda
 
         private void CloseForm()
         {
-            this.Close();
+            LoginForm.Instance.Show();
+            this.Hide();
         }
 
         #endregion
