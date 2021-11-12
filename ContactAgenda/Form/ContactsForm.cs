@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using BusinessLayer.Service;
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ContactAgenda
@@ -12,12 +10,30 @@ namespace ContactAgenda
     {
         public static ContactsForm Instance { get; } = new ContactsForm();
 
+        private ContactService _contactService;
+
         public ContactsForm()
         {
             InitializeComponent();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            _contactService = new ContactService(connection);
         }
 
         #region Events
+
+        private void ContactsForm_Load(object sender, EventArgs e)
+        {
+            LoadContacts();
+        }
+
+        private void ContactsForm_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadContacts();
+        }
 
         private void ContactsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -41,7 +57,7 @@ namespace ContactAgenda
 
         private void BtnDeleteContact_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         #endregion
@@ -50,6 +66,7 @@ namespace ContactAgenda
 
         private void Logout()
         {
+            LoginService.Instance.IdLogedUser = -1;
             CloseForm();
         }
 
@@ -65,6 +82,12 @@ namespace ContactAgenda
             AddContactForm newAddContactForm = new AddContactForm();
             newAddContactForm.Show();
             this.Hide();
+        }
+
+        private void LoadContacts()
+        {
+            DgvContacts.DataSource = _contactService.GetAll((int)LoginService.Instance.IdLogedUser);
+            DgvContacts.ClearSelection();
         }
 
         private void CloseForm()

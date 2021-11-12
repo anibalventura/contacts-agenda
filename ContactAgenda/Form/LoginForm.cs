@@ -11,8 +11,6 @@ namespace ContactAgenda
     {
         public static LoginForm Instance { get; } = new LoginForm();
 
-        public int idLogedUser;
-
         private UserService _userService;
 
         public LoginForm()
@@ -58,11 +56,11 @@ namespace ContactAgenda
 
             if(user.Username == username && user.Password == password)
             {
+                LoginService.Instance.IdLogedUser = user.Id;
+
                 ContactsForm newContactsForm = new ContactsForm();
                 newContactsForm.Show();
                 this.Hide();
-
-                idLogedUser = user.Id;
 
                 TxtBxUsername.Clear();
                 TxtBxPassword.Clear();

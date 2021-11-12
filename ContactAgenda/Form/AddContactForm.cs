@@ -50,7 +50,7 @@ namespace ContactAgenda
             string address = TxtBxAddress.Text;
             string phoneNumber = TxtBxPhoneNumber.Text;
             string workNumber = TxtBxWorkNumber.Text;
-            int idUser = LoginForm.Instance.idLogedUser;
+            int idUser = (int)LoginService.Instance.IdLogedUser;
 
             if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(phoneNumber) || String.IsNullOrEmpty(workNumber))
             {

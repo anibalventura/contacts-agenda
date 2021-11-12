@@ -89,9 +89,14 @@ namespace Database.Repository
 
         }
 
-        public DataTable GetAll()
+        public DataTable GetAll(int idUser)
         {
-            SqlDataAdapter query = new SqlDataAdapter("select c.Id,c.Name,c.LastName,c.Address,c.PhoneNumber,c.WorkNumber,c.IdUser from Contacts c", _connection);
+            SqlDataAdapter query = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand("select c.Id as Code,c.Name,c.LastName as \"Last name\",c.Address,c.PhoneNumber as \"Phone Number\",c.WorkNumber as \"Work Number\" from Contacts c where c.IdUser = @iduser", _connection);
+
+            command.Parameters.AddWithValue("@iduser", idUser);
+            query.SelectCommand = command;
+
             return LoadData(query);
         }
 

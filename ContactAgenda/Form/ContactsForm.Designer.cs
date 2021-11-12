@@ -68,13 +68,18 @@ namespace ContactAgenda
             // 
             // DgvContacts
             // 
+            this.DgvContacts.AllowUserToAddRows = false;
+            this.DgvContacts.AllowUserToDeleteRows = false;
             this.DgvContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TlpMain.SetColumnSpan(this.DgvContacts, 2);
             this.DgvContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvContacts.Location = new System.Drawing.Point(110, 115);
+            this.DgvContacts.MultiSelect = false;
             this.DgvContacts.Name = "DgvContacts";
+            this.DgvContacts.ReadOnly = true;
             this.TlpMain.SetRowSpan(this.DgvContacts, 2);
             this.DgvContacts.RowTemplate.Height = 25;
+            this.DgvContacts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvContacts.Size = new System.Drawing.Size(494, 218);
             this.DgvContacts.TabIndex = 0;
             // 
@@ -141,7 +146,7 @@ namespace ContactAgenda
             // MsItemLogout
             // 
             this.MsItemLogout.Name = "MsItemLogout";
-            this.MsItemLogout.Size = new System.Drawing.Size(180, 22);
+            this.MsItemLogout.Size = new System.Drawing.Size(112, 22);
             this.MsItemLogout.Text = "Logout";
             this.MsItemLogout.Click += new System.EventHandler(this.MsItemLogout_Click);
             // 
@@ -156,6 +161,8 @@ namespace ContactAgenda
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacts";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ContactsForm_FormClosed);
+            this.Load += new System.EventHandler(this.ContactsForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.ContactsForm_VisibleChanged);
             this.TlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvContacts)).EndInit();
             this.menuStrip1.ResumeLayout(false);

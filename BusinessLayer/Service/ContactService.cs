@@ -34,9 +34,9 @@ namespace BusinessLayer.Service
             return contactRepository.GetById(id);
         }
 
-        public DataTable GetAll()
+        public DataTable GetAll(int idUser)
         {
-            return contactRepository.GetAll();
+            return contactRepository.GetAll(idUser);
         }
     }
 }
