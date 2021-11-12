@@ -88,18 +88,20 @@ namespace ContactAgenda
             // TxtBxUsername
             // 
             this.TxtBxUsername.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtBxUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TxtBxUsername.Location = new System.Drawing.Point(271, 121);
             this.TxtBxUsername.Name = "TxtBxUsername";
-            this.TxtBxUsername.Size = new System.Drawing.Size(128, 23);
+            this.TxtBxUsername.Size = new System.Drawing.Size(128, 27);
             this.TxtBxUsername.TabIndex = 2;
             // 
             // TxtBxPassword
             // 
             this.TxtBxPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtBxPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TxtBxPassword.Location = new System.Drawing.Point(271, 172);
             this.TxtBxPassword.Name = "TxtBxPassword";
             this.TxtBxPassword.PasswordChar = '*';
-            this.TxtBxPassword.Size = new System.Drawing.Size(128, 23);
+            this.TxtBxPassword.Size = new System.Drawing.Size(128, 27);
             this.TxtBxPassword.TabIndex = 3;
             // 
             // BtnRegister
