@@ -12,6 +12,8 @@ namespace ContactAgenda
 
         private ContactService _contactService;
 
+        public int? selectedContact = null;
+
         public ContactsForm()
         {
             InitializeComponent();
@@ -50,6 +52,14 @@ namespace ContactAgenda
             AddContact();
         }
 
+        private void DgvContacts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedContact = int.Parse(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
+        }
+
         private void BtnEditContact_Click(object sender, EventArgs e)
         {
             EditContact();
@@ -57,12 +67,18 @@ namespace ContactAgenda
 
         private void BtnDeleteContact_Click(object sender, EventArgs e)
         {
-            
+            DeleteContact();
         }
 
         #endregion
 
         #region Methods
+
+        private void LoadContacts()
+        {
+            DgvContacts.DataSource = _contactService.GetAll((int)LoginService.Instance.IdLogedUser);
+            DgvContacts.ClearSelection();
+        }
 
         private void Logout()
         {
@@ -84,10 +100,33 @@ namespace ContactAgenda
             this.Hide();
         }
 
-        private void LoadContacts()
+        private void DeleteContact()
         {
-            DgvContacts.DataSource = _contactService.GetAll((int)LoginService.Instance.IdLogedUser);
-            DgvContacts.ClearSelection();
+            if (selectedContact != null)
+            {
+                DialogResult response = MessageBox.Show("Are you sure you want to delete this contact?",
+                    "Warning!", MessageBoxButtons.OKCancel);
+
+                if (response == DialogResult.OK)
+                {
+                    bool result = _contactService.Delete((int)selectedContact);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Contact deleted successfully.", "Notification!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("There was a problem, try again later.", "Error!");
+                    }
+
+                    LoadContacts();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a contact.", "Warning!");
+            }
         }
 
         private void CloseForm()

@@ -82,6 +82,7 @@ namespace ContactAgenda
             this.DgvContacts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvContacts.Size = new System.Drawing.Size(494, 218);
             this.DgvContacts.TabIndex = 0;
+            this.DgvContacts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvContacts_CellClick);
             // 
             // BtnEditContact
             // 
