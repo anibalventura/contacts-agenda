@@ -18,7 +18,7 @@ namespace BusinessLayer.Service
             return userRepository.Add(user);
         }
 
-        public bool IsRegistered(string username)
+        public User IsRegistered(string username)
         {
             return userRepository.IsRegistered(username);
         }

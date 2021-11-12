@@ -25,13 +25,39 @@ namespace Database.Repository
             return ExecuteDml(command);
         }
 
-        public bool IsRegistered(string username)
+        public User IsRegistered(string username)
         {
-            SqlCommand command = new SqlCommand("select u.Username from Users u where u.Username = @username", _connection);
+            try
+            {
+                _connection.Open();
 
-            command.Parameters.AddWithValue("@username", username);
+                SqlCommand command = new SqlCommand("select u.Id,u.Name,u.LastName,u.Username,u.Password from Users u where u.Username = @username", _connection);
 
-            return ExecuteDml(command);
+                command.Parameters.AddWithValue("@username", username);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                User data = new User();
+
+                while (reader.Read())
+                {
+                    data.Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                    data.Name = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                    data.LastName = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                    data.Username = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                    data.Password = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                }
+
+                reader.Close();
+                reader.Dispose();
+                _connection.Close();
+
+                return data;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public User Login(string username, string password)
