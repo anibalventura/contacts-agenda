@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BusinessLayer.Service;
+using Database.Model;
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ContactAgenda
@@ -7,9 +11,17 @@ namespace ContactAgenda
     {
         public static LoginForm Instance { get; } = new LoginForm();
 
+        private UserService _userService;
+
         public LoginForm()
         {
             InitializeComponent();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            _userService = new UserService(connection);
         }
 
         #region Events
@@ -37,9 +49,28 @@ namespace ContactAgenda
 
         private void LoginUser()
         {
-            ContactsForm newContactsForm = new ContactsForm();
-            newContactsForm.Show();
-            this.Hide();
+            string username = TxtBxUsername.Text;
+            string password = TxtBxPassword.Text;
+
+            User user = _userService.Login(username, password);
+
+            if(user.Username == username && user.Password == password)
+            {
+                ContactsForm newContactsForm = new ContactsForm();
+                newContactsForm.Show();
+                this.Hide();
+
+                TxtBxUsername.Clear();
+                TxtBxPassword.Clear();
+            }
+            else if(String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please complete all fields to login.", "Warning!");
+            }
+            else
+            {
+                MessageBox.Show("Username or password are incorrect.", "Warning!");
+            }
         }
 
         #endregion

@@ -32,8 +32,8 @@ namespace ContactAgenda
             this.TlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.LblUsername = new System.Windows.Forms.Label();
             this.LblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtBxUsername = new System.Windows.Forms.TextBox();
+            this.TxtBxPassword = new System.Windows.Forms.TextBox();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.TlpMain.SuspendLayout();
@@ -48,8 +48,8 @@ namespace ContactAgenda
             this.TlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.TlpMain.Controls.Add(this.LblUsername, 1, 1);
             this.TlpMain.Controls.Add(this.LblPassword, 1, 2);
-            this.TlpMain.Controls.Add(this.textBox1, 2, 1);
-            this.TlpMain.Controls.Add(this.textBox2, 2, 2);
+            this.TlpMain.Controls.Add(this.TxtBxUsername, 2, 1);
+            this.TlpMain.Controls.Add(this.TxtBxPassword, 2, 2);
             this.TlpMain.Controls.Add(this.BtnRegister, 1, 3);
             this.TlpMain.Controls.Add(this.BtnLogin, 2, 3);
             this.TlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,22 +85,22 @@ namespace ContactAgenda
             this.LblPassword.TabIndex = 1;
             this.LblPassword.Text = "Password";
             // 
-            // textBox1
+            // TxtBxUsername
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(271, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 23);
-            this.textBox1.TabIndex = 2;
+            this.TxtBxUsername.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtBxUsername.Location = new System.Drawing.Point(271, 121);
+            this.TxtBxUsername.Name = "TxtBxUsername";
+            this.TxtBxUsername.Size = new System.Drawing.Size(128, 23);
+            this.TxtBxUsername.TabIndex = 2;
             // 
-            // textBox2
+            // TxtBxPassword
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox2.Location = new System.Drawing.Point(271, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(128, 23);
-            this.textBox2.TabIndex = 3;
+            this.TxtBxPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtBxPassword.Location = new System.Drawing.Point(271, 172);
+            this.TxtBxPassword.Name = "TxtBxPassword";
+            this.TxtBxPassword.PasswordChar = '*';
+            this.TxtBxPassword.Size = new System.Drawing.Size(128, 23);
+            this.TxtBxPassword.TabIndex = 3;
             // 
             // BtnRegister
             // 
@@ -146,8 +146,8 @@ namespace ContactAgenda
         private System.Windows.Forms.TableLayoutPanel TlpMain;
         private System.Windows.Forms.Label LblUsername;
         private System.Windows.Forms.Label LblPassword;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtBxUsername;
+        private System.Windows.Forms.TextBox TxtBxPassword;
         private System.Windows.Forms.Button BtnRegister;
         private System.Windows.Forms.Button BtnLogin;
     }

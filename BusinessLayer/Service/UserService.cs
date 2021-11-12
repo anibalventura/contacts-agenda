@@ -23,7 +23,7 @@ namespace BusinessLayer.Service
             return userRepository.IsRegistered(username);
         }
 
-        public bool Login(string username, string password)
+        public User Login(string username, string password)
         {
             return userRepository.Login(username, password);
         }
