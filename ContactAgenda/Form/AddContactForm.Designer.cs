@@ -35,7 +35,7 @@ namespace ContactAgenda
             this.LblAddress = new System.Windows.Forms.Label();
             this.LblPhoneNumber = new System.Windows.Forms.Label();
             this.LblWorkNumber = new System.Windows.Forms.Label();
-            this.BtnAddContact = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtBxName = new System.Windows.Forms.TextBox();
             this.TxtBxLastName = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@ namespace ContactAgenda
             this.TlpMain.Controls.Add(this.LblAddress, 1, 3);
             this.TlpMain.Controls.Add(this.LblPhoneNumber, 1, 4);
             this.TlpMain.Controls.Add(this.LblWorkNumber, 1, 5);
-            this.TlpMain.Controls.Add(this.BtnAddContact, 1, 6);
+            this.TlpMain.Controls.Add(this.BtnSave, 1, 6);
             this.TlpMain.Controls.Add(this.BtnCancel, 2, 6);
             this.TlpMain.Controls.Add(this.TxtBxName, 2, 1);
             this.TlpMain.Controls.Add(this.TxtBxLastName, 2, 2);
@@ -134,17 +134,17 @@ namespace ContactAgenda
             this.LblWorkNumber.TabIndex = 4;
             this.LblWorkNumber.Text = "Work number";
             // 
-            // BtnAddContact
+            // BtnSave
             // 
-            this.BtnAddContact.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnAddContact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnAddContact.Location = new System.Drawing.Point(94, 339);
-            this.BtnAddContact.Name = "BtnAddContact";
-            this.BtnAddContact.Size = new System.Drawing.Size(207, 33);
-            this.BtnAddContact.TabIndex = 5;
-            this.BtnAddContact.Text = "Add";
-            this.BtnAddContact.UseVisualStyleBackColor = true;
-            this.BtnAddContact.Click += new System.EventHandler(this.BtnAddContact_Click);
+            this.BtnSave.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSave.Location = new System.Drawing.Point(94, 339);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(207, 33);
+            this.BtnSave.TabIndex = 5;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnCancel
             // 
@@ -229,7 +229,7 @@ namespace ContactAgenda
         private System.Windows.Forms.Label LblAddress;
         private System.Windows.Forms.Label LblPhoneNumber;
         private System.Windows.Forms.Label LblWorkNumber;
-        private System.Windows.Forms.Button BtnAddContact;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.TextBox TxtBxName;
         private System.Windows.Forms.TextBox TxtBxLastName;
