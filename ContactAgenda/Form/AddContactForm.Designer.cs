@@ -136,6 +136,7 @@ namespace ContactAgenda
             // 
             // BtnSave
             // 
+            this.BtnSave.BackColor = System.Drawing.Color.LightGreen;
             this.BtnSave.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnSave.Location = new System.Drawing.Point(94, 339);
@@ -143,11 +144,12 @@ namespace ContactAgenda
             this.BtnSave.Size = new System.Drawing.Size(207, 33);
             this.BtnSave.TabIndex = 5;
             this.BtnSave.Text = "Save";
-            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnCancel
             // 
+            this.BtnCancel.BackColor = System.Drawing.Color.IndianRed;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancel.Location = new System.Drawing.Point(307, 339);
@@ -155,7 +157,7 @@ namespace ContactAgenda
             this.BtnCancel.Size = new System.Drawing.Size(207, 33);
             this.BtnCancel.TabIndex = 6;
             this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TxtBxName
@@ -209,6 +211,7 @@ namespace ContactAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(609, 450);
             this.Controls.Add(this.TlpMain);
             this.Name = "AddContactForm";

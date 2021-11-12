@@ -86,6 +86,7 @@ namespace ContactAgenda
             // 
             // BtnEditContact
             // 
+            this.BtnEditContact.BackColor = System.Drawing.Color.SandyBrown;
             this.BtnEditContact.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnEditContact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEditContact.Location = new System.Drawing.Point(110, 339);
@@ -93,11 +94,12 @@ namespace ContactAgenda
             this.BtnEditContact.Size = new System.Drawing.Size(244, 33);
             this.BtnEditContact.TabIndex = 1;
             this.BtnEditContact.Text = "Edit";
-            this.BtnEditContact.UseVisualStyleBackColor = true;
+            this.BtnEditContact.UseVisualStyleBackColor = false;
             this.BtnEditContact.Click += new System.EventHandler(this.BtnEditContact_Click);
             // 
             // BtnDeleteContact
             // 
+            this.BtnDeleteContact.BackColor = System.Drawing.Color.IndianRed;
             this.BtnDeleteContact.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnDeleteContact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnDeleteContact.Location = new System.Drawing.Point(360, 339);
@@ -105,11 +107,12 @@ namespace ContactAgenda
             this.BtnDeleteContact.Size = new System.Drawing.Size(244, 33);
             this.BtnDeleteContact.TabIndex = 2;
             this.BtnDeleteContact.Text = "Delete";
-            this.BtnDeleteContact.UseVisualStyleBackColor = true;
+            this.BtnDeleteContact.UseVisualStyleBackColor = false;
             this.BtnDeleteContact.Click += new System.EventHandler(this.BtnDeleteContact_Click);
             // 
             // BtnAddContact
             // 
+            this.BtnAddContact.BackColor = System.Drawing.Color.LightGreen;
             this.TlpMain.SetColumnSpan(this.BtnAddContact, 2);
             this.BtnAddContact.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnAddContact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -118,7 +121,7 @@ namespace ContactAgenda
             this.BtnAddContact.Size = new System.Drawing.Size(494, 33);
             this.BtnAddContact.TabIndex = 3;
             this.BtnAddContact.Text = "Add new contact";
-            this.BtnAddContact.UseVisualStyleBackColor = true;
+            this.BtnAddContact.UseVisualStyleBackColor = false;
             this.BtnAddContact.Click += new System.EventHandler(this.BtnAddContact_Click);
             // 
             // contextMenuStrip1
@@ -155,6 +158,7 @@ namespace ContactAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(715, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.TlpMain);

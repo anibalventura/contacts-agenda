@@ -184,6 +184,7 @@ namespace ContactAgenda
             // 
             // BtnRegister
             // 
+            this.BtnRegister.BackColor = System.Drawing.Color.SandyBrown;
             this.BtnRegister.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnRegister.Location = new System.Drawing.Point(155, 339);
@@ -191,11 +192,12 @@ namespace ContactAgenda
             this.BtnRegister.Size = new System.Drawing.Size(146, 32);
             this.BtnRegister.TabIndex = 10;
             this.BtnRegister.Text = "Register";
-            this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.UseVisualStyleBackColor = false;
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // BtnCancel
             // 
+            this.BtnCancel.BackColor = System.Drawing.Color.IndianRed;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancel.Location = new System.Drawing.Point(307, 339);
@@ -203,13 +205,14 @@ namespace ContactAgenda
             this.BtnCancel.Size = new System.Drawing.Size(146, 32);
             this.BtnCancel.TabIndex = 11;
             this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // RegisterUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(608, 450);
             this.Controls.Add(this.TlpMain);
             this.Name = "RegisterUserForm";
