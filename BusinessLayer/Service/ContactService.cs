@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace BusinessLayer.Service
 {
-    public class ContactService
+    public class ContactService : IContactCrud
     {
         private ContactRepository contactRepository;
 

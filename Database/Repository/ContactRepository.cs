@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Database.Repository
 {
-    public class ContactRepository
+    public class ContactRepository : IContactCrud
     {
         private SqlConnection _connection;
 
