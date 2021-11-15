@@ -20,7 +20,7 @@ namespace Database.Repository
 
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@lastname", user.LastName);
-            command.Parameters.AddWithValue("@address", user.LastName);
+            command.Parameters.AddWithValue("@address", user.Address);
             command.Parameters.AddWithValue("@phonenumber", user.PhoneNumber);
             command.Parameters.AddWithValue("@worknumber", user.WorkNumber);
             command.Parameters.AddWithValue("@iduser", user.IdUser);
@@ -34,7 +34,7 @@ namespace Database.Repository
 
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@lastname", user.LastName);
-            command.Parameters.AddWithValue("@address", user.LastName);
+            command.Parameters.AddWithValue("@address", user.Address);
             command.Parameters.AddWithValue("@phonenumber", user.PhoneNumber);
             command.Parameters.AddWithValue("@worknumber", user.WorkNumber);
             command.Parameters.AddWithValue("@iduser", user.IdUser);
