@@ -1,11 +1,12 @@
-﻿using Database.Model;
+﻿using BusinessLayer.Interface;
+using Database.Model;
 using Database.Repository;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace BusinessLayer.Service
 {
-    public class ContactService : IContactCrud
+    public class ContactService : IService<Contact>
     {
         private ContactRepository contactRepository;
 

@@ -56,7 +56,7 @@ namespace ContactAgenda
 
             if(user.Username == username && user.Password == password)
             {
-                LoginService.Instance.IdLogedUser = user.Id;
+                LoginRepository.Instance.IdLogedUser = user.Id;
 
                 ContactsForm newContactsForm = new ContactsForm();
                 newContactsForm.Show();

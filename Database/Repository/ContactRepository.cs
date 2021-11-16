@@ -5,18 +5,13 @@ using System.Data;
 
 namespace Database.Repository
 {
-    public class ContactRepository : IContactCrud
+    public class ContactRepository : RepositoryBase, IRepository<Contact>
     {
-        private SqlConnection _connection;
-
-        public ContactRepository(SqlConnection connection)
-        {
-            _connection = connection;
-        }
+        public ContactRepository(SqlConnection connection) : base(connection) { }
 
         public bool Add(Contact user)
         {
-            SqlCommand command = new SqlCommand("insert into Contacts(Name,LastName,Address,PhoneNumber,WorkNumber,IdUser) values(@name,@lastname,@address,@phonenumber,@worknumber,@iduser)", _connection);
+            SqlCommand command = new SqlCommand("insert into Contacts(Name,LastName,Address,PhoneNumber,WorkNumber,IdUser) values(@name,@lastname,@address,@phonenumber,@worknumber,@iduser)", GetConnection());
 
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@lastname", user.LastName);
@@ -30,7 +25,7 @@ namespace Database.Repository
 
         public bool Edit(Contact user)
         {
-            SqlCommand command = new SqlCommand("update Contacts set Name=@name,LastName=@lastname,Address=@address,PhoneNumber=@phonenumber,WorkNumber=@worknumber,IdUser=@iduser where Id = @id", _connection);
+            SqlCommand command = new SqlCommand("update Contacts set Name=@name,LastName=@lastname,Address=@address,PhoneNumber=@phonenumber,WorkNumber=@worknumber,IdUser=@iduser where Id = @id", GetConnection());
 
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@lastname", user.LastName);
@@ -45,7 +40,7 @@ namespace Database.Repository
 
         public bool Delete(int id)
         {
-            SqlCommand command = new SqlCommand("delete Contacts where Id = @id", _connection);
+            SqlCommand command = new SqlCommand("delete Contacts where Id = @id", GetConnection());
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -56,9 +51,9 @@ namespace Database.Repository
         {
             try
             {
-                _connection.Open();
+                GetConnection().Open();
 
-                SqlCommand command = new SqlCommand("select c.Id,c.Name,c.LastName,c.Address,c.PhoneNumber,c.WorkNumber,c.IdUser from Contacts c where c.Id = @id", _connection);
+                SqlCommand command = new SqlCommand("select c.Id,c.Name,c.LastName,c.Address,c.PhoneNumber,c.WorkNumber,c.IdUser from Contacts c where c.Id = @id", GetConnection());
 
                 command.Parameters.AddWithValue("@id", id);
 
@@ -79,7 +74,7 @@ namespace Database.Repository
 
                 reader.Close();
                 reader.Dispose();
-                _connection.Close();
+                GetConnection().Close();
 
                 return data;
             }
@@ -93,50 +88,12 @@ namespace Database.Repository
         public DataTable GetAll(int idUser)
         {
             SqlDataAdapter query = new SqlDataAdapter();
-            SqlCommand command = new SqlCommand("select c.Id as Code,c.Name,c.LastName as \"Last name\",c.Address,c.PhoneNumber as \"Phone Number\",c.WorkNumber as \"Work Number\" from Contacts c where c.IdUser = @iduser", _connection);
+            SqlCommand command = new SqlCommand("select c.Id as Code,c.Name,c.LastName as \"Last name\",c.Address,c.PhoneNumber as \"Phone Number\",c.WorkNumber as \"Work Number\" from Contacts c where c.IdUser = @iduser", GetConnection());
 
             command.Parameters.AddWithValue("@iduser", idUser);
             query.SelectCommand = command;
 
             return LoadData(query);
         }
-
-        private DataTable LoadData(SqlDataAdapter query)
-        {
-            try
-            {
-                DataTable data = new DataTable();
-
-                _connection.Open();
-
-                query.Fill(data);
-
-                _connection.Close();
-
-                return data;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-        private bool ExecuteDml(SqlCommand query)
-        {
-            try
-            {
-                _connection.Open();
-
-                query.ExecuteNonQuery();
-
-                _connection.Close();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
     }
 }

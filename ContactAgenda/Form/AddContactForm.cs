@@ -47,7 +47,7 @@ namespace ContactAgenda
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (LoginService.Instance.IdSelectedContact != null)
+            if (LoginRepository.Instance.IdSelectedContact != null)
             {
                 EditContact();
             }
@@ -73,7 +73,7 @@ namespace ContactAgenda
             string address = TxtBxAddress.Text;
             string phoneNumber = TxtBxPhoneNumber.Text;
             string workNumber = TxtBxWorkNumber.Text;
-            int idUser = (int)LoginService.Instance.IdLogedUser;
+            int idUser = (int)LoginRepository.Instance.IdLogedUser;
 
             if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(address) || !TxtBxPhoneNumber.MaskCompleted || !TxtBxWorkNumber.MaskCompleted)
             {
@@ -111,9 +111,9 @@ namespace ContactAgenda
 
         private void LoadContactToEdit()
         {
-            if(LoginService.Instance.IdSelectedContact != null)
+            if(LoginRepository.Instance.IdSelectedContact != null)
             {
-                Contact contact = _contactService.GetById((int)LoginService.Instance.IdSelectedContact);
+                Contact contact = _contactService.GetById((int)LoginRepository.Instance.IdSelectedContact);
 
                 TxtBxName.Text = contact.Name;
                 TxtBxLastName.Text = contact.LastName;
@@ -130,7 +130,7 @@ namespace ContactAgenda
             string address = TxtBxAddress.Text;
             string phoneNumber = TxtBxPhoneNumber.Text;
             string workNumber = TxtBxWorkNumber.Text;
-            int idUser = (int)LoginService.Instance.IdLogedUser;
+            int idUser = (int)LoginRepository.Instance.IdLogedUser;
 
             if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(address) || !TxtBxPhoneNumber.MaskCompleted || !TxtBxWorkNumber.MaskCompleted)
             {
@@ -140,7 +140,7 @@ namespace ContactAgenda
             {
                 Contact updatedContact = new Contact()
                 {
-                    Id = (int)LoginService.Instance.IdSelectedContact,
+                    Id = (int)LoginRepository.Instance.IdSelectedContact,
                     Name = name,
                     LastName = lastName,
                     Address = address,
@@ -169,7 +169,7 @@ namespace ContactAgenda
 
         private void CloseForm()
         {
-            LoginService.Instance.IdSelectedContact = null;
+            LoginRepository.Instance.IdSelectedContact = null;
             this.Close();
         }
 

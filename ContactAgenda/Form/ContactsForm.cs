@@ -65,7 +65,7 @@ namespace ContactAgenda
         {
             if (e.RowIndex >= 0)
             {
-                LoginService.Instance.IdSelectedContact = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
+                LoginRepository.Instance.IdSelectedContact = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
         }
 
@@ -85,13 +85,13 @@ namespace ContactAgenda
 
         private void LoadContacts()
         {
-            DgvContacts.DataSource = _contactService.GetAll((int)LoginService.Instance.IdLogedUser);
+            DgvContacts.DataSource = _contactService.GetAll((int)LoginRepository.Instance.IdLogedUser);
             DgvContacts.ClearSelection();
         }
 
         private void Logout()
         {
-            LoginService.Instance.IdLogedUser = -1;
+            LoginRepository.Instance.IdLogedUser = -1;
             CloseForm();
         }
 
@@ -104,7 +104,7 @@ namespace ContactAgenda
 
         private void EditContact()
         {
-            if (LoginService.Instance.IdSelectedContact != null)
+            if (LoginRepository.Instance.IdSelectedContact != null)
             {
                 AddContactForm newAddContactForm = new AddContactForm();
                 newAddContactForm.Show();
@@ -118,14 +118,14 @@ namespace ContactAgenda
 
         private void DeleteContact()
         {
-            if (LoginService.Instance.IdSelectedContact != null)
+            if (LoginRepository.Instance.IdSelectedContact != null)
             {
                 DialogResult response = MessageBox.Show("Are you sure you want to delete this contact?",
                     "Warning!", MessageBoxButtons.OKCancel);
 
                 if (response == DialogResult.OK)
                 {
-                    bool result = _contactService.Delete((int)LoginService.Instance.IdSelectedContact);
+                    bool result = _contactService.Delete((int)LoginRepository.Instance.IdSelectedContact);
 
                     if (result)
                     {

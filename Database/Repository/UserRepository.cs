@@ -4,18 +4,13 @@ using Database.Model;
 
 namespace Database.Repository
 {
-    public class UserRepository
+    public class UserRepository : RepositoryBase
     {
-        private SqlConnection _connection;
-
-        public UserRepository(SqlConnection connection)
-        {
-            _connection = connection;
-        }
+        public UserRepository(SqlConnection connection) : base(connection) { }
 
         public bool Add(User user)
         {
-            SqlCommand command = new SqlCommand("insert into Users(Name,LastName,Username,Password) values(@name,@lastname,@username,@password)", _connection);
+            SqlCommand command = new SqlCommand("insert into Users(Name,LastName,Username,Password) values(@name,@lastname,@username,@password)", GetConnection());
 
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@lastname", user.LastName);
@@ -29,9 +24,9 @@ namespace Database.Repository
         {
             try
             {
-                _connection.Open();
+                GetConnection().Open();
 
-                SqlCommand command = new SqlCommand("select u.Username from Users u where u.Username = @username", _connection);
+                SqlCommand command = new SqlCommand("select u.Username from Users u where u.Username = @username", GetConnection());
 
                 command.Parameters.AddWithValue("@username", username);
 
@@ -46,7 +41,7 @@ namespace Database.Repository
 
                 reader.Close();
                 reader.Dispose();
-                _connection.Close();
+                GetConnection().Close();
 
                 if (usernameDB == username)
                 {
@@ -67,9 +62,9 @@ namespace Database.Repository
         {
             try
             {
-                _connection.Open();
+                GetConnection().Open();
 
-                SqlCommand command = new SqlCommand("select u.Id,u.Name,u.LastName,u.Username,u.Password from Users u where u.Username = @username and u.Password = @password", _connection);
+                SqlCommand command = new SqlCommand("select u.Id,u.Name,u.LastName,u.Username,u.Password from Users u where u.Username = @username and u.Password = @password", GetConnection());
 
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
@@ -89,31 +84,13 @@ namespace Database.Repository
 
                 reader.Close();
                 reader.Dispose();
-                _connection.Close();
+                GetConnection().Close();
 
                 return data;
             }
             catch(Exception e)
             {
                 return null;
-            }
-        }
-
-        private bool ExecuteDml(SqlCommand query)
-        {
-            try
-            {
-                _connection.Open();
-
-                query.ExecuteNonQuery();
-
-                _connection.Close();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
             }
         }
     }
