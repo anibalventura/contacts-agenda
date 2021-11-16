@@ -33,37 +33,12 @@ WinForm app to manage a contacts agenda by user, written in .NET with SQL-Server
 
 ## Build
 
-1. Create a SQL Server database with the following tables:
+1. Open and run the following SQL script file `../Database/ContactsAgendaDB.sql` to generate the database structure used in this project.
 
-- Users
-  - **Id** as primary key and autoincrement.
-
-| Column Name | Data Type    | Allow Nulls |
-| ----------- | ------------ | ----------- |
-| Id          | int          | [ ]         |
-| Name        | nvarchar(50) | [ x ]       |
-| LastName    | nvarchar(50) | [ x ]       |
-| Username    | nvarchar(50) | [ x ]       |
-| Password    | nvarchar(50) | [ x ]       |
-
-- Contacts
-  - **Id** as primary key and autoincrement.
-  - **IdUser** as foreign key from table **Users**.
-
-| Column Name | Data Type     | Allow Nulls |
-| ----------- | ------------- | ----------- |
-| Id          | int           | [ ]         |
-| Name        | nvarchar(50)  | [ x ]       |
-| LastName    | nvarchar(50)  | [ x ]       |
-| Address     | nvarchar(100) | [ x ]       |
-| PhoneNumber | nchar(30)     | [ x ]       |
-| WorkNumber  | nchar(30)     | [ x ]       |
-| IdUser      | int           | [ x ]       |
-
-2. In ../ContactAgenda/App.config file change line seven for:
+2. In the file `../ContactAgenda/App.config` find this line and change `source` parameter:
 
 ```xml
-connectionString="data source=<SQL SERVER NAME>;initial catalog=<DATABASE NAME>;integrated security=True;"
+connectionString="data source=<SQL SERVER NAME>;initial catalog=ContactsAgenda;integrated security=True;"
 ```
 
 ## License
