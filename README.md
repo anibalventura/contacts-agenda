@@ -27,6 +27,12 @@ WinForm app to manage a contacts agenda by user, written in .NET with SQL-Server
   - Check if all the data has been completed.
 - Option in menu strip to logout.
 
+## Database Diagram
+
+<p align="left">
+  <img src="Screenshots/database-model.png" height=190px/>
+</p>
+
 ## Dependencies
 
 - [System.Data.SqlClient - Version 4.8.3](https://www.nuget.org/packages/System.Data.SqlClient)
